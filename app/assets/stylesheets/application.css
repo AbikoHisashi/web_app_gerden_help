@@ -46,10 +46,13 @@ header {
 
 .post-item {
     border: 2px solid gray;
-#    margin-bottom: 30px;
     width: 200px;
-    margin: 0 auto 30px;
+    margin: 30px auto;
 }
 .content{
     font-size: 15px;
+}
+
+.show-btns {
+    border-top: 2px solid gray;
 }
