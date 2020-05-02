@@ -22,6 +22,20 @@
 				</ul>
 			</div>
 		</header>
-		<%= yield %>
+		<% if flash[:notice] %>
+			<div class="flash">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+		<div class="mains">
+			<%= yield %>
+		</div>
+		<footer>
+				<ul>
+					<li><%= link_to("リリース情報","/releases/index") %></li>
+				</ul>
+			</div>
+		</footer>
+
     </body>
 </html>

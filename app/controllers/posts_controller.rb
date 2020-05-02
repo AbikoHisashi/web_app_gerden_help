@@ -1,6 +1,7 @@
+# coding: utf-8
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
   
   def new
@@ -12,14 +13,16 @@ class PostsController < ApplicationController
   end
   
   def create
-    post = Post.new(
+    @post = Post.new(
       user_id: params[:user_id], 
       content: params[:content]
+#      image: params[:image]
     )
-    if post.save
+    if @post.save
+      flash[:notice] = "投稿できました"
       redirect_to("/posts/index")
     else
-      render("/posts/edit")
+      render("/posts/new")
     end
   end
 
@@ -28,19 +31,24 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find_by(id: params[:id] )
-    post.content = params[:content]
-    post.id = params[:id]
-    if post.save
-      redirect_to("/posts/index", {method:post})
+    @post = Post.find_by(id: params[:id] )
+    @post.content = params[:content]
+    # if params[:image]
+    #   post.image = params[:image]
+    # end
+    
+    if @post.save
+      flash[:notice] = "編集できました"
+      redirect_to("/posts/index")
     else
-      redirect_to("/posts/index", {method:post})
+      render("/posts/edit")
     end
   end
   
   def destroy
     post = Post.find_by(id: params[:id] )
     post.destroy
+    flash[:notice] = "削除できました"
     redirect_to("/posts/index")
   end
 end

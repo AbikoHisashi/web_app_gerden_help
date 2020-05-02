@@ -1,14 +1,17 @@
 <div class="posts new">
-  <h1>新規投稿</h1>
-  <div class="post-item">
-    <%= form_tag("/posts/create") do %>
-    <div>
-    投稿内容<br/>
-    <textarea name="content"></textarea>
-    </div>
-    <div>    ユーザid    <input name="user_id"/>    </div>
-    <input type="submit", value="投稿">
-    <% end %>
-  </div>
+	<h1>新規投稿</h1>
+	<% @post.errors.full_messages.each do |m| %>
+		<%= m %><br/>
+	<% end %>
+	<div class="post-item">
+		<%= form_tag("/posts/create") do %>
+			<div>
+				投稿内容<br/>
+				<textarea name="content"><%= @post.content %></textarea>
+			</div>
+			<div>ユーザid:<input name="user_id" /></div>
+			<input type="submit", value="投稿">
+		<% end %>
+	</div>
 </div>
 

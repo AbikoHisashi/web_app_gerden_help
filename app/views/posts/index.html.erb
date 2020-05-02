@@ -1,15 +1,17 @@
 <div class="posts index">
-  <div class="index-message">
-    <h1>投稿一覧</h1>
-  </div>
-  <div class="index-main">
+	<div class="index-message">
+		<h1>投稿一覧</h1>
+	</div>
+	<div class="index-main">
 
-    <% @posts.each do |post| %>
-    <div class="post-item">
-      <div><%= post.user_id %>　さんの投稿</div>
-      <div class="content"><%= link_to(post.content, "/posts/#{post.id}") %></div>
-    </div>
-    <% end %>
+		<% @posts.each do |post| %>
+			<div class="post-item">
+				<div><%= post.user_id %>　さんの投稿</div>
+				<div class="content">
+					<%= link_to(post.content, "/posts/#{post.id}") %>
+				</div>
+			</div>
+		<% end %>
 
-  </div>
+	</div>
 </div>

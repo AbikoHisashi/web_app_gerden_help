@@ -1,0 +1,2 @@
+module PoticHelper
+end

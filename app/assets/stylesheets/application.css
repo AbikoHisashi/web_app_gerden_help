@@ -1,20 +1,34 @@
-
-
-ul, li {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
+html,  body { margin: 0; width: 100%; height: 100%; }
 header {
-    position: fixd;
-    height: 50px;
+    width: 100%;
+    height: 40px;
+    position: fixed;
     top: 0px;
     left: 0px;
     z-index: 100;
     background-color: green;
     color: white;
     padding: 10px 20px 10px;
+}
+.mains { margin: 70px 0px 50px; height: 200px; }
+footer { width: 100%; height: 60px; background-color: #999;
+	 position: absolute; bottom: 0; }
+.flash {
+    padding: 10px 0;
+    color: brack;
+    text-align: center;
+    position: absolute;
+    top: 64px;
+    z-index: 10;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .header-left{
@@ -24,7 +38,6 @@ header {
     float: right;
 }
 .header-right ul{
-    float: left;
 }
 .header-right li{
     float: left;
@@ -34,6 +47,7 @@ header {
 .main {
     text-algin: center;
     position: absolute;
+    padding: 10px 10px;
     top: 64px;
 }
 

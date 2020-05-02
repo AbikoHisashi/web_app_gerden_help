@@ -1,0 +1,24 @@
+<div class="releases index">
+	<div class="releases-message">
+		<h1>リリース一覧</h1>
+	</div>
+	<div class="index-main">
+
+		<% @rs.each do |r| %>
+			<div class="post-item">
+				<div><%= r.created_at %></div>
+				<div><%= r.content %></div>
+			</div>
+		<% end %>
+
+		<div class="post-item">
+			<div>2020/5/1</div>
+			<div>データベース稼働により，投稿機能動作確認</div>
+		</div>
+		<div class="post-item">
+			<div>2020/4/29</div>
+			<div>Herokuにてデプロイ</div>
+		</div>
+
+	</div>
+</div>
