@@ -1,2 +1,0 @@
-module PoticsHelper
-end

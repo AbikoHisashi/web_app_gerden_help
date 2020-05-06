@@ -8,6 +8,7 @@
 			<div class="post-item">
 				<div><%= post.user_id %>　さんの投稿</div>
 				<div class="content">
+					<img src="<%= "/post_imgs/#{post.img_name}" %>">
 					<%= link_to(post.content, "/posts/#{post.id}") %>
 				</div>
 			</div>

@@ -4,12 +4,13 @@
 		<%= m %><br/>
 	<% end %>
 	<div class="post-item">
-		<%= form_tag("/posts/create") do %>
+		<%= form_tag("/posts/create", {multipart: true}) do %>
 			<div>
 				投稿内容<br/>
 				<textarea name="content"><%= @post.content %></textarea>
 			</div>
 			<div>ユーザid:<input name="user_id" /></div>
+			<input name="img" type="file">
 			<input type="submit", value="投稿">
 		<% end %>
 	</div>

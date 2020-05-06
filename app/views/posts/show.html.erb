@@ -2,6 +2,7 @@
 	<div class="post-item">
 		<div class="show-contents">
 			<div><%= @post.user_id %></div>
+			<div><img src="<%= "/post_imgs/#{@post.img_name}" %>"></div>
 			<div><%= @post.content %></div>
 		</div>
 		<div class="show-btns">

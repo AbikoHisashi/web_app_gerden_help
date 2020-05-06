@@ -1,11 +1,13 @@
 <div class="posts edit">
 	<h1>投稿編集</h1>
 	<div class="post-item">
-		<%= form_tag("/posts/#{@post.id}/update") do %>
+		<%= form_tag("/posts/#{@post.id}/update", {multipart: true}) do %>
 			<div>投稿内容<br/>
 				<textarea name="content"><%= @post.content %></textarea>
 			</div>
 			<div>ユーザid: <%= @post.user_id %></div>
+			<div><img src="<%= "/post_imgs/#{@post.img_name}" %>"></div>
+			<div><input name="img" type="file"></div>
 			<input type="submit" value="保存">
 		<% end %>
 	</div>

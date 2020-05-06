@@ -15,11 +15,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(
       user_id: params[:user_id], 
-      content: params[:content]
-#      image: params[:image]
+      content: params[:content],
+      img_name: "default.img"
     )
     if @post.save
       flash[:notice] = "投稿できました"
+      if params[:img]
+        img = params[:img]
+        @post.img_name = "#{@post.id}.jpg"
+        File.binwrite("public/post_imgs/#{@post.img_name}", img.read)
+        @post.save
+      end
       redirect_to("/posts/index")
     else
       render("/posts/new")
@@ -33,9 +39,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id] )
     @post.content = params[:content]
-    # if params[:image]
-    #   post.image = params[:image]
-    # end
+    if params[:img]
+      img = params[:img]
+      @post.img_name = "#{@post.id}.jpg"
+      File.binwrite("public/post_imgs/#{@post.img_name}", img.read)
+    end
     
     if @post.save
       flash[:notice] = "編集できました"
