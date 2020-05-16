@@ -3,7 +3,9 @@
 		<div class="show-contents">
 			<div><%= @post.user_id %></div>
 			<div><img src="<%= "/post_imgs/#{@post.img_name}" %>"></div>
+			<div><%= image_tag @post.img.to_s %></div>
 			<div><%= @post.content %></div>
+			<div><%= @post.created_at %></div>
 		</div>
 		<div class="show-btns">
 			<%= link_to("編集", "/posts/#{@post.id}/edit") %>

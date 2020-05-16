@@ -16,20 +16,32 @@ class PostsController < ApplicationController
     @post = Post.new(
       user_id: params[:user_id], 
       content: params[:content],
-      img_name: "default.img"
+      img: params[:img]
     )
+
     if @post.save
-      flash[:notice] = "投稿できました"
-      if params[:img]
-        img = params[:img]
-        @post.img_name = "#{@post.id}.jpg"
-        File.binwrite("public/post_imgs/#{@post.img_name}", img.read)
-        @post.save
-      end
       redirect_to("/posts/index")
     else
       render("/posts/new")
     end
+      
+    # @post = Post.new(
+    #   user_id: params[:user_id], 
+    #   content: params[:content],
+    #   img_name: "default.img"
+    # )
+    # if @post.save
+    #   flash[:notice] = "投稿できました"
+    #   if params[:img]
+    #     img = params[:img]
+    #     @post.img_name = "#{@post.id}.jpg"
+    #     File.binwrite("public/post_imgs/#{@post.img_name}", img.read)
+    #     @post.save
+    #   end
+    #   redirect_to("/posts/index")
+    # else
+    #   render("/posts/new")
+    # end
   end
 
   def edit

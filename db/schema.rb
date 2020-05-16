@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_201822) do
+ActiveRecord::Schema.define(version: 2020_05_16_125208) do
 
-  create_table "posts", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "img_name"
-  end
+# Could not dump table "posts" because of following StandardError
+#   Unknown type 'stiring' for column 'img'
 
   create_table "potics", force: :cascade do |t|
     t.text "content"
